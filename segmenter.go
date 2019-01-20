@@ -62,6 +62,7 @@ func (seg *Segmenter) LoadDictionary(files string) error {
 // The format of the dictionary is (one line per participle):
 // Word segmentation text Frequency Part of speech
 func (seg *Segmenter) LoadDictionaryFromReader(r io.Reader) {
+	seg.dict = NewDictionary()
 	seg.tokenizeDictionary(r)
 	seg.processDictionary()
 }
